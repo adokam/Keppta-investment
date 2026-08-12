@@ -27,7 +27,7 @@ export function AuthCard({ title, children }: AuthCardProps) {
           >
             {title}
           </h1>
-          <p className="mt-1 text-sm text-muted-foreground">Keppta Investment</p>
+          <p className="mt-1 text-sm text-muted-foreground">Keppta</p>
         </div>
         <div className="mt-8 space-y-4">{children}</div>
       </div>

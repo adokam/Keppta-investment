@@ -6,6 +6,7 @@ export const SITE = {
     "Keppta Investment is a Nigerian rewards & investment platform. Complete daily tasks, earn ₦100 every sign-in (₦500 on day 7), refer friends and grow your income.",
   keywords: [
     "Keppta Investment",
+    "Keppta",
     "earn money Nigeria",
     "daily sign in bonus",
     "referral platform Nigeria",
