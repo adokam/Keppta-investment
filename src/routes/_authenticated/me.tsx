@@ -5,7 +5,7 @@ import {
   Shield, ScrollText, MessageCircle, Sun, Moon,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/kamdan-logo.png";
+import logo from "@/assets/keppta-logo.png";
 import { seo } from "@/lib/site";
 import { useTheme } from "@/lib/theme";
 
