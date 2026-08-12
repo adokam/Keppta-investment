@@ -65,8 +65,8 @@ export function DepositModal({ onClose, onCreated }: { onClose: () => void; onCr
   };
 
   const waMessage = submitted
-    ? `Hello Kamdan Admin,%0A%0AI just made a deposit.%0A%0AUsername: ${encodeURIComponent(username)}%0AAmount: ${NGN(submitted.amount)}%0ASender/Ref: ${encodeURIComponent(submitted.reference || "n/a")}%0ADeposit ID: ${submitted.id.slice(0, 8)}%0A%0AScreenshot attached.`
-    : `Hello Kamdan Admin, I made a deposit to Opay ${SITE.payment.accountNumber}. Please confirm.`;
+    ? `Hello Keppta Investment Admin,%0A%0AI just made a deposit.%0A%0AUsername: ${encodeURIComponent(username)}%0AAmount: ${NGN(submitted.amount)}%0ASender/Ref: ${encodeURIComponent(submitted.reference || "n/a")}%0ADeposit ID: ${submitted.id.slice(0, 8)}%0A%0AScreenshot attached.`
+    : `Hello Keppta Investment Admin, I made a deposit to Opay ${SITE.payment.accountNumber}. Please confirm.`;
   const waLink = `https://wa.me/${NGN_WA_NUMBER}?text=${waMessage}`;
 
   return (

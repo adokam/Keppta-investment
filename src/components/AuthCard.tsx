@@ -16,7 +16,7 @@ export function AuthCard({ title, children }: AuthCardProps) {
         <div className="flex flex-col items-center">
           <img
             src={logo}
-            alt="Kamdan"
+            alt="Keppta"
             width={96}
             height={96}
             className="h-24 w-24 rounded-full object-cover"
@@ -27,7 +27,7 @@ export function AuthCard({ title, children }: AuthCardProps) {
           >
             {title}
           </h1>
-          <p className="mt-1 text-sm text-muted-foreground">Kamdan</p>
+          <p className="mt-1 text-sm text-muted-foreground">Keppta Investment</p>
         </div>
         <div className="mt-8 space-y-4">{children}</div>
       </div>

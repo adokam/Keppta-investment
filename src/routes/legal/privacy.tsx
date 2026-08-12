@@ -4,8 +4,8 @@ import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/privacy")({
   head: () => seo({
-    title: "Privacy Policy — Kamdan",
-    description: "How Kamdan collects, uses and protects your personal information.",
+    title: "Privacy Policy — Keppta Investment",
+    description: "How Keppta Investment collects, uses and protects your personal information.",
     path: "/legal/privacy",
   }),
   component: () => (
@@ -44,7 +44,7 @@ export const Route = createFileRoute("/legal/privacy")({
       <p>We retain account and transaction data for as long as your account is active and for up to 7 years after closure to comply with financial regulations.</p>
 
       <h2>8. Children</h2>
-      <p>Kamdan is not intended for anyone under 18.</p>
+      <p>Keppta Investment is not intended for anyone under 18.</p>
 
       <h2>9. Changes</h2>
       <p>We may update this policy; the "Last updated" date reflects the latest revision.</p>

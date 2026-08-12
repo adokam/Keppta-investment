@@ -9,7 +9,7 @@ import { NGN } from "@/lib/format";
 import { seo, NGN_WA_NUMBER } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/admin")({
-  head: () => seo({ title: "Admin — Kamdan", path: "/admin", noindex: true }),
+  head: () => seo({ title: "Admin — Keppta Investment", path: "/admin", noindex: true }),
   component: AdminPage,
 });
 

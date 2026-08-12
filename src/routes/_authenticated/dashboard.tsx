@@ -12,7 +12,7 @@ import { DepositModal } from "@/components/DepositModal";
 import { WithdrawModal } from "@/components/WithdrawModal";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => seo({ title: "Home — Kamdan Dashboard", path: "/dashboard", noindex: true }),
+  head: () => seo({ title: "Home — Keppta Investment Dashboard", path: "/dashboard", noindex: true }),
   component: Home,
 });
 
@@ -69,7 +69,7 @@ function Home() {
     <>
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <img src={logo} alt="Kamdan logo" width={44} height={44} className="h-11 w-11 rounded-full" />
+          <img src={logo} alt="Keppta logo" width={44} height={44} className="h-11 w-11 rounded-full" />
           <div>
             <p className="text-xs text-muted-foreground">Welcome back</p>
             <h1 className="text-base font-semibold text-foreground">{profile?.username || "User"}</h1>

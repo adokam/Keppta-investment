@@ -7,7 +7,7 @@ import { NGN, lagosToday } from "@/lib/format";
 import { seo } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/task")({
-  head: () => seo({ title: "Tasks — Daily Sign-in & Earnings | Kamdan", path: "/task", noindex: true }),
+  head: () => seo({ title: "Tasks — Daily Sign-in & Earnings | Keppta Investment", path: "/task", noindex: true }),
   component: TaskPage,
 });
 

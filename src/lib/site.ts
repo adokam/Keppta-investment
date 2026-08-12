@@ -1,11 +1,11 @@
 // Central site metadata — used across SEO tags, JSON-LD, sitemap.
 export const SITE = {
-  name: "Kamdan",
+  name: "Keppta Investment",
   tagline: "Earn Daily • Invest Smart",
   description:
-    "Kamdan is a Nigerian rewards & investment platform. Complete daily tasks, earn ₦100 every sign-in (₦500 on day 7), refer friends and grow your income.",
+    "Keppta Investment is a Nigerian rewards & investment platform. Complete daily tasks, earn ₦100 every sign-in (₦500 on day 7), refer friends and grow your income.",
   keywords: [
-    "Kamdan",
+    "Keppta Investment",
     "earn money Nigeria",
     "daily sign in bonus",
     "referral platform Nigeria",
@@ -18,20 +18,20 @@ export const SITE = {
   url: "https://project--a45d359e-e925-4ef0-aa8a-9e395cd2d66c.lovable.app",
   ogImage:
     "https://project--a45d359e-e925-4ef0-aa8a-9e395cd2d66c.lovable.app/__l5e/assets-v1/45bf1d72-1a98-4b3a-9eea-3ce6e734dc57/og-image.jpg",
-  twitter: "@kamdan",
+  twitter: "@keppta",
   locale: "en_NG",
   country: "NG",
   // Placeholders — replace with real contact once provided.
   support: {
-    email: "support@kamdan.example",
+    email: "support@keppta.example",
     whatsapp: "https://wa.me/000000000000",
-    telegram: "https://t.me/kamdan_placeholder",
+    telegram: "https://t.me/keppta",
   },
   // Company deposit account (placeholder — replace with official details later)
   payment: {
     bank: "Opay",
     accountNumber: "9161366544",
-    accountName: "Kamdan",
+    accountName: "Keppta Investment",
   },
   referralBonus: 500,
 };
