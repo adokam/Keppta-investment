@@ -5,7 +5,7 @@ import {
   Sparkles, ChevronRight, ListChecks, Gift,
 } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
-import logo from "@/assets/kamdan-logo.png";
+import logo from "@/assets/keppta-logo.png";
 import { NGN } from "@/lib/format";
 import { seo } from "@/lib/site";
 import { DepositModal } from "@/components/DepositModal";

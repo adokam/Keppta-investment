@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import logo from "@/assets/kamdan-logo.png";
+import logo from "@/assets/keppta-logo.png";
 
 interface AuthCardProps {
   title: string;
