@@ -101,12 +101,12 @@ function Home() {
           <div className="rounded-xl bg-primary-foreground/10 p-2.5 backdrop-blur">
             <p className="text-[9px] font-semibold uppercase tracking-widest text-primary-foreground/70">Deposit wallet</p>
             <p className="mt-0.5 text-sm font-bold text-primary-foreground">{NGN(profile?.balance ?? 0)}</p>
-            <p className="text-[9px] text-primary-foreground/60">Buys VIP products</p>
+            <p className="text-[9px] text-primary-foreground/60">Buys products & withdrawable</p>
           </div>
           <div className="rounded-xl bg-primary-foreground/10 p-2.5 backdrop-blur">
             <p className="text-[9px] font-semibold uppercase tracking-widest text-primary-foreground/70">Earnings</p>
             <p className="mt-0.5 text-sm font-bold text-primary-foreground">{NGN(profile?.earnings_balance ?? 0)}</p>
-            <p className="text-[9px] text-primary-foreground/60">Withdrawable</p>
+            <p className="text-[9px] text-primary-foreground/60">Tasks & daily profit</p>
           </div>
         </div>
         <div className="mt-4 flex gap-2">
@@ -127,7 +127,7 @@ function Home() {
       {showDeposit && <DepositModal onClose={() => setShowDeposit(false)} onCreated={load} />}
       {showWithdraw && (
         <WithdrawModal
-          earningsBalance={Number(profile?.earnings_balance ?? 0)}
+          walletBalance={walletTotal}
           hasActiveInvestment={hasActiveInvestment}
           onClose={() => setShowWithdraw(false)}
           onChanged={load}
