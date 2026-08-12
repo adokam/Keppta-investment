@@ -17,15 +17,15 @@ interface WithdrawRow {
   created_at: string;
 }
 
-const MIN_WITHDRAW = 500;
+const MIN_WITHDRAW = 100;
 
 export function WithdrawModal({
-  earningsBalance,
+  walletBalance,
   hasActiveInvestment,
   onClose,
   onChanged,
 }: {
-  earningsBalance: number;
+  walletBalance: number;
   hasActiveInvestment: boolean;
   onClose: () => void;
   onChanged: () => void;
@@ -56,7 +56,7 @@ export function WithdrawModal({
   const submit = async () => {
     const n = Number(amount);
     if (!n || n < MIN_WITHDRAW) return toast.error(`Minimum withdrawal is ${NGN(MIN_WITHDRAW)}`);
-    if (n > earningsBalance) return toast.error("Amount exceeds withdrawable balance");
+    if (n > walletBalance) return toast.error("Amount exceeds your wallet balance");
     if (!bank) return toast.error("Select your bank");
     if (!/^\d{10}$/.test(accountNumber.trim())) return toast.error("Enter a valid 10 digit account number");
     if (accountName.trim().length < 2) return toast.error("Enter the account name");
@@ -73,10 +73,10 @@ export function WithdrawModal({
     const res = data as { ok: boolean; reason?: string };
     if (!res.ok) {
       if (res.reason === "no_active_investment") {
-        return toast.error("Purchase a VIP product first before withdrawing");
+        return toast.error("Deposit and buy at least one product to unlock withdrawals");
       }
-      if (res.reason === "insufficient_earnings") {
-        return toast.error("Insufficient withdrawable balance");
+      if (res.reason === "insufficient_balance") {
+        return toast.error("Insufficient wallet balance");
       }
       return toast.error("Unable to submit withdrawal");
     }
@@ -100,7 +100,7 @@ export function WithdrawModal({
       >
         <div className="mb-4 flex items-center justify-between">
           <h3 className="flex items-center gap-2 text-base font-semibold text-foreground" style={{ fontFamily: "var(--font-display)" }}>
-            <Banknote size={18} className="text-accent-cyan" /> Withdraw earnings
+            <Banknote size={18} className="text-accent-cyan" /> Withdraw funds
           </h3>
           <button onClick={onClose} className="rounded-full p-1 text-muted-foreground hover:bg-muted/40" aria-label="Close">
             <X size={18} />
@@ -112,9 +112,9 @@ export function WithdrawModal({
             <div className="flex items-start gap-2">
               <AlertTriangle size={18} className="mt-0.5 shrink-0 text-yellow-300" />
               <div>
-                <p className="text-sm font-semibold text-yellow-100">Purchase a product first</p>
+                <p className="text-sm font-semibold text-yellow-100">Deposit & buy a product first</p>
                 <p className="mt-1 text-[12px] leading-relaxed text-yellow-100/80">
-                  Withdrawals are only unlocked for users with an active VIP investment. Money from daily tasks and referrals stays in your earnings pool until you activate a VIP product.
+                  Withdrawals unlock once you own at least one product. Make a deposit, buy any VIP product, and you can then withdraw any amount from your wallet.
                 </p>
               </div>
             </div>
@@ -130,13 +130,20 @@ export function WithdrawModal({
         ) : (
           <>
             <div className="rounded-xl border border-border bg-input/40 p-3">
-              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Withdrawable balance</p>
+              <p className="text-[10px] uppercase tracking-widest text-muted-foreground">Wallet balance</p>
               <p className="mt-0.5 text-2xl font-bold text-accent-cyan" style={{ fontFamily: "var(--font-display)" }}>
-                {NGN(earningsBalance)}
+                {NGN(walletBalance)}
               </p>
               <p className="mt-1 text-[10px] text-muted-foreground">
-                Only earnings from daily tasks and VIP profit claims. Minimum {NGN(MIN_WITHDRAW)}.
+                Withdraw any amount up to your full wallet balance. Minimum {NGN(MIN_WITHDRAW)}.
               </p>
+              <button
+                type="button"
+                onClick={() => setAmount(String(walletBalance))}
+                className="mt-2 rounded-lg border border-border px-2.5 py-1 text-[10px] font-semibold uppercase tracking-widest text-accent-cyan"
+              >
+                Withdraw all
+              </button>
             </div>
 
             <label className="mt-4 block text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
@@ -191,7 +198,7 @@ export function WithdrawModal({
             />
 
             <p className="mt-3 text-[11px] leading-relaxed text-muted-foreground">
-              The amount is deducted from your earnings immediately. If admin rejects the request, the exact amount is refunded to your earnings balance.
+              The amount is deducted from your wallet immediately. If admin rejects the request, the exact amount is refunded to your wallet.
             </p>
 
             <div className="mt-4 flex gap-2">
