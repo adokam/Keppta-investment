@@ -10,7 +10,7 @@ import { seo } from "@/lib/site";
 import { useTheme } from "@/lib/theme";
 
 export const Route = createFileRoute("/_authenticated/me")({
-  head: () => seo({ title: "My Profile — Kamdan", path: "/me", noindex: true }),
+  head: () => seo({ title: "My Profile — Keppta Investment", path: "/me", noindex: true }),
   component: MePage,
 });
 

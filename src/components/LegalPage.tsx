@@ -12,7 +12,7 @@ export function LegalPage({ title, updated, children }: LegalPageProps) {
   return (
     <main className="mx-auto min-h-screen w-full max-w-3xl px-4 pb-16 pt-6">
       <Link to="/" className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground">
-        <ArrowLeft size={14} /> Back to Kamdan
+        <ArrowLeft size={14} /> Back to Keppta Investment
       </Link>
       <header className="mt-4 border-b border-border pb-4">
         <h1 className="text-3xl font-bold text-foreground" style={{ fontFamily: "var(--font-display)" }}>{title}</h1>

@@ -9,8 +9,8 @@ import { seo } from "@/lib/site";
 
 export const Route = createFileRoute("/register")({
   head: () => seo({
-    title: "Create your Kamdan account — Earn Daily & Invest Smart",
-    description: "Join Kamdan in seconds. Earn ₦100 every daily sign-in (₦500 on day 7), invest in VIP products for daily profit, and get ₦500 for every friend you refer.",
+    title: "Create your Keppta Investment account — Earn Daily & Invest Smart",
+    description: "Join Keppta Investment in seconds. Earn ₦100 every daily sign-in (₦500 on day 7), invest in VIP products for daily profit, and get ₦500 for every friend you refer.",
     path: "/register",
   }),
   component: RegisterPage,
