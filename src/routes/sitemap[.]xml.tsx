@@ -1,0 +1,35 @@
+import { createFileRoute } from "@tanstack/react-router";
+import type {} from "@tanstack/react-start";
+import { SITE } from "@/lib/site";
+
+interface Entry { path: string; changefreq: string; priority: string; }
+
+export const Route = createFileRoute("/sitemap.xml")({
+  server: {
+    handlers: {
+      GET: async () => {
+        const entries: Entry[] = [
+          { path: "/", changefreq: "weekly", priority: "1.0" },
+          { path: "/register", changefreq: "monthly", priority: "0.9" },
+          { path: "/legal/terms", changefreq: "yearly", priority: "0.5" },
+          { path: "/legal/privacy", changefreq: "yearly", priority: "0.5" },
+          { path: "/legal/refund", changefreq: "yearly", priority: "0.4" },
+          { path: "/legal/disclaimer", changefreq: "yearly", priority: "0.4" },
+          { path: "/legal/aml", changefreq: "yearly", priority: "0.4" },
+        ];
+        const urls = entries.map((e) => `  <url>
+    <loc>${SITE.url}${e.path}</loc>
+    <changefreq>${e.changefreq}</changefreq>
+    <priority>${e.priority}</priority>
+  </url>`).join("\n");
+        const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urls}
+</urlset>`;
+        return new Response(xml, {
+          headers: { "Content-Type": "application/xml", "Cache-Control": "public, max-age=3600" },
+        });
+      },
+    },
+  },
+});

@@ -8,9 +8,12 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
+import { Toaster } from "sonner";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { supabase } from "@/integrations/supabase/client";
+
 
 function NotFoundComponent() {
   return (
@@ -72,26 +75,72 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   );
 }
 
+import { SITE } from "@/lib/site";
+
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Lovable Generated Project" },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Lovable Generated Project" },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:site", content: "@Lovable" },
+      { name: "theme-color", content: "#0b1220" },
+      { name: "application-name", content: SITE.name },
+      { name: "apple-mobile-web-app-title", content: SITE.name },
+      { name: "format-detection", content: "telephone=no" },
+      { property: "og:site_name", content: SITE.name },
+      { property: "og:locale", content: SITE.locale },
     ],
     links: [
+      { rel: "stylesheet", href: appCss },
+      { rel: "icon", href: "/favicon.png", type: "image/png" },
+      { rel: "apple-touch-icon", href: "/favicon.png" },
+    ],
+    scripts: [
       {
-        rel: "stylesheet",
-        href: appCss,
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Organization",
+              "@id": `${SITE.url}#organization`,
+              name: SITE.name,
+              url: SITE.url,
+              logo: SITE.ogImage,
+              sameAs: [SITE.support.whatsapp, SITE.support.telegram],
+              contactPoint: [{
+                "@type": "ContactPoint",
+                email: SITE.support.email,
+                contactType: "customer support",
+                areaServed: "NG",
+                availableLanguage: ["en"],
+              }],
+            },
+            {
+              "@type": "WebSite",
+              "@id": `${SITE.url}#website`,
+              url: SITE.url,
+              name: SITE.name,
+              description: SITE.description,
+              publisher: { "@id": `${SITE.url}#organization` },
+              inLanguage: "en-NG",
+            },
+            {
+              "@type": "LocalBusiness",
+              "@id": `${SITE.url}#business`,
+              name: SITE.name,
+              image: SITE.ogImage,
+              url: SITE.url,
+              telephone: "+234-000-000-0000",
+              priceRange: "₦₦",
+              address: {
+                "@type": "PostalAddress",
+                addressCountry: "NG",
+                addressLocality: "Lagos",
+              },
+            },
+          ],
+        }),
       },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,11 +165,22 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const router = useRouter();
+
+  useEffect(() => {
+    const { data } = supabase.auth.onAuthStateChange((event) => {
+      if (event !== "SIGNED_IN" && event !== "SIGNED_OUT" && event !== "USER_UPDATED") return;
+      router.invalidate();
+      if (event !== "SIGNED_OUT") queryClient.invalidateQueries();
+    });
+    return () => data.subscription.unsubscribe();
+  }, [router, queryClient]);
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
       <Outlet />
+      <Toaster theme="dark" position="top-center" richColors />
     </QueryClientProvider>
   );
 }
+
