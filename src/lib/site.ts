@@ -1,4 +1,10 @@
-// Central site metadata — used across SEO tags, JSON-LD, sitemap.
+// Central site metadata - used across SEO tags, JSON-LD, sitemap.
+// Set VITE_SITE_URL in your hosting environment (e.g. Vercel) to your real domain.
+const SITE_URL = (
+  (typeof import.meta !== "undefined" && import.meta.env?.["VITE_SITE_URL"]) ||
+  "https://project--a45d359e-e925-4ef0-aa8a-9e395cd2d66c.lovable.app"
+).replace(/\/$/, "");
+
 export const SITE = {
   name: "Keppta Investment",
   tagline: "Earn Daily • Invest Smart",
@@ -15,14 +21,13 @@ export const SITE = {
     "task earning app",
     "naira rewards",
   ],
-  // Stable published URL — valid once the project is published.
-  url: "https://project--a45d359e-e925-4ef0-aa8a-9e395cd2d66c.lovable.app",
-  ogImage:
-    "https://project--a45d359e-e925-4ef0-aa8a-9e395cd2d66c.lovable.app/__l5e/assets-v1/45bf1d72-1a98-4b3a-9eea-3ce6e734dc57/og-image.jpg",
+  // Canonical site URL (override with VITE_SITE_URL).
+  url: SITE_URL,
+  ogImage: `${SITE_URL}/og-image.jpg`,
   twitter: "@keppta",
   locale: "en_NG",
   country: "NG",
-  // Placeholders — replace with real contact once provided.
+  // Placeholders - replace with real contact once provided.
   support: {
     email: "support@keppta.example",
     whatsapp: "https://wa.me/000000000000",
