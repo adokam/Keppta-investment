@@ -18,7 +18,7 @@ import vip9 from "@/assets/vip/vip9.jpg";
 import vip10 from "@/assets/vip/vip10.jpg";
 
 export const Route = createFileRoute("/_authenticated/invest")({
-  head: () => seo({ title: "Invest — VIP Products | Keppta Investment", path: "/invest", noindex: true }),
+  head: () => seo({ title: "Invest - VIP Products | Keppta Investment", path: "/invest", noindex: true }),
   component: InvestPage,
 });
 

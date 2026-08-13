@@ -10,7 +10,7 @@ import { seo } from "@/lib/site";
 export const Route = createFileRoute("/")({
   head: () => {
     const s = seo({
-      title: "Keppta Investment — Earn Daily, Invest Smart in Nigeria",
+      title: "Keppta Investment - Earn Daily, Invest Smart in Nigeria",
       description: "Sign in to Keppta Investment. Earn ₦100 every day (₦500 on day 7), complete tasks, refer friends and grow your income.",
       path: "/",
     });

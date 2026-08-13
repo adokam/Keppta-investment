@@ -7,7 +7,7 @@ import { NGN, lagosToday } from "@/lib/format";
 import { seo } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/task")({
-  head: () => seo({ title: "Tasks — Daily Sign-in & Earnings | Keppta Investment", path: "/task", noindex: true }),
+  head: () => seo({ title: "Tasks - Daily Sign-in & Earnings | Keppta Investment", path: "/task", noindex: true }),
   component: TaskPage,
 });
 
@@ -51,7 +51,7 @@ function TaskPage() {
     if (error) { toast.error(error.message); return; }
     const res = data as { ok: boolean; day?: number; amount?: number };
     if (!res.ok) { toast.info("Already claimed today. Come back tomorrow!"); return; }
-    toast.success(`Day ${res.day} claimed — +${NGN(res.amount ?? 0)}`);
+    toast.success(`Day ${res.day} claimed - +${NGN(res.amount ?? 0)}`);
     load();
   };
 
@@ -104,9 +104,9 @@ function TaskPage() {
           className="mt-4 w-full rounded-xl py-3 text-sm font-semibold text-primary-foreground transition disabled:opacity-50"
           style={{ background: "var(--gradient-btn)" }}
         >
-          {claimedToday ? "Claimed today — come back tomorrow"
+          {claimedToday ? "Claimed today - come back tomorrow"
             : claiming ? "Claiming…"
-            : `Claim Day ${nextDay} — +${nextDay === 7 ? "₦500" : "₦100"}`}
+            : `Claim Day ${nextDay} - +${nextDay === 7 ? "₦500" : "₦100"}`}
         </button>
       </section>
 

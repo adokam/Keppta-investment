@@ -4,7 +4,7 @@ import { seo } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/disclaimer")({
   head: () => seo({
-    title: "Risk Disclaimer — Keppta Investment",
+    title: "Risk Disclaimer - Keppta Investment",
     description: "Understand the risks of using Keppta Investment's investment and earning products.",
     path: "/legal/disclaimer",
   }),
