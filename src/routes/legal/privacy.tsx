@@ -4,7 +4,7 @@ import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/privacy")({
   head: () => seo({
-    title: "Privacy Policy — Keppta Investment",
+    title: "Privacy Policy - Keppta Investment",
     description: "How Keppta Investment collects, uses and protects your personal information.",
     path: "/legal/privacy",
   }),
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/legal/privacy")({
       <p>We do not sell your personal data. We may share it with payment processors, hosting providers, and regulators when required.</p>
 
       <h2>4. Security</h2>
-      <p>We use encryption (HTTPS), Row-Level Security on our database, and secure authentication. No system is 100% secure — use a strong, unique password.</p>
+      <p>We use encryption (HTTPS), Row-Level Security on our database, and secure authentication. No system is 100% secure - use a strong, unique password.</p>
 
       <h2>5. Cookies</h2>
       <p>We use essential cookies for authentication and analytics cookies to improve the service.</p>

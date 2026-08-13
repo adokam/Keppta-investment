@@ -4,7 +4,7 @@ import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/terms")({
   head: () => seo({
-    title: "Terms of Service — Keppta Investment",
+    title: "Terms of Service - Keppta Investment",
     description: "Read the Keppta Investment Terms of Service governing use of our earning and investment platform.",
     path: "/legal/terms",
   }),
@@ -43,7 +43,7 @@ export const Route = createFileRoute("/legal/terms")({
       <p>We may suspend or terminate your account at any time for violations of these Terms, suspected fraud, or as required by law. Balances tied to fraudulent activity will not be paid out.</p>
 
       <h2>8. Disclaimer</h2>
-      <p>Keppta Investment is provided "as is". Investment products carry risk — see our Risk Disclaimer for details. Past performance is not indicative of future results.</p>
+      <p>Keppta Investment is provided "as is". Investment products carry risk - see our Risk Disclaimer for details. Past performance is not indicative of future results.</p>
 
       <h2>9. Limitation of Liability</h2>
       <p>To the maximum extent permitted by law, Keppta Investment and its affiliates are not liable for indirect, incidental, or consequential damages arising from your use of the platform.</p>

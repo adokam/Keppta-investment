@@ -7,7 +7,7 @@ import { NGN } from "@/lib/format";
 import { seo } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/referral")({
-  head: () => seo({ title: "Referral Program — Invite & Earn | Keppta Investment", path: "/referral", noindex: true }),
+  head: () => seo({ title: "Referral Program - Invite & Earn | Keppta Investment", path: "/referral", noindex: true }),
   component: ReferralPage,
 });
 
@@ -36,7 +36,7 @@ function ReferralPage() {
   }, []);
 
   const link = profile ? `${window.location.origin}/register?code=${profile.referral_code}` : "";
-  const shareText = `Join me on Keppta Investment — refer & earn ₦500 for every friend you invite. Sign up with my code: ${profile?.referral_code}`;
+  const shareText = `Join me on Keppta Investment - refer & earn ₦500 for every friend you invite. Sign up with my code: ${profile?.referral_code}`;
 
   const copy = (val: string, label: string) => {
     navigator.clipboard.writeText(val);

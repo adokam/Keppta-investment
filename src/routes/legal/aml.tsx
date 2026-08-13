@@ -4,7 +4,7 @@ import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/aml")({
   head: () => seo({
-    title: "AML & KYC Policy — Keppta Investment",
+    title: "AML & KYC Policy - Keppta Investment",
     description: "Keppta Investment's Anti-Money Laundering and Know-Your-Customer policy.",
     path: "/legal/aml",
   }),

@@ -4,7 +4,7 @@ import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/legal/refund")({
   head: () => seo({
-    title: "Refund Policy — Keppta Investment",
+    title: "Refund Policy - Keppta Investment",
     description: "Keppta Investment's refund and cancellation policy for deposits and investments.",
     path: "/legal/refund",
   }),

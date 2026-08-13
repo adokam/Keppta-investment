@@ -12,7 +12,7 @@ import { DepositModal } from "@/components/DepositModal";
 import { WithdrawModal } from "@/components/WithdrawModal";
 
 export const Route = createFileRoute("/_authenticated/dashboard")({
-  head: () => seo({ title: "Home — Keppta Investment Dashboard", path: "/dashboard", noindex: true }),
+  head: () => seo({ title: "Home - Keppta Investment Dashboard", path: "/dashboard", noindex: true }),
   component: Home,
 });
 

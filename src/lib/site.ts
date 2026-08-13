@@ -33,7 +33,7 @@ export const SITE = {
     whatsapp: "https://wa.me/000000000000",
     telegram: "https://t.me/keppta",
   },
-  // Company deposit account (placeholder — replace with official details later)
+  // Company deposit account (placeholder - replace with official details later)
   payment: {
     bank: "Opay",
     accountNumber: "9161366544",

@@ -9,7 +9,7 @@ import { NGN } from "@/lib/format";
 import { seo, NGN_WA_NUMBER } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/admin")({
-  head: () => seo({ title: "Admin — Keppta Investment", path: "/admin", noindex: true }),
+  head: () => seo({ title: "Admin - Keppta Investment", path: "/admin", noindex: true }),
   component: AdminPage,
 });
 
@@ -217,9 +217,9 @@ function PendingDeposits() {
             <div className="mt-3 rounded-xl border border-border/60 bg-input/30 p-3 text-[12px]">
               <div className="grid grid-cols-2 gap-2">
                 <Field label="User">{user?.username ?? "..."}</Field>
-                <Field label="Phone">{user?.phone ?? "—"}</Field>
+                <Field label="Phone">{user?.phone ?? "-"}</Field>
                 <Field label="Email">
-                  <span className="truncate">{user?.email ?? "—"}</span>
+                  <span className="truncate">{user?.email ?? "-"}</span>
                 </Field>
                 <Field label="Wallet">{user ? NGN(Number(user.balance)) : "..."}</Field>
               </div>
@@ -457,7 +457,7 @@ function UsersTab() {
               >
                 <div className="min-w-0">
                   <p className="text-sm font-semibold text-foreground">{p.username}</p>
-                  <p className="truncate text-[11px] text-muted-foreground">{p.email || p.phone || "—"}</p>
+                  <p className="truncate text-[11px] text-muted-foreground">{p.email || p.phone || "-"}</p>
                 </div>
                 <span className="text-sm font-bold text-accent-cyan">{NGN(Number(p.balance))}</span>
               </button>
@@ -512,7 +512,7 @@ function UserDetail({
 
       <div className="rounded-2xl border border-border bg-card/60 p-4">
         <p className="text-sm font-semibold text-foreground">{user.username}</p>
-        <p className="text-[11px] text-muted-foreground">{user.email || user.phone || "—"}</p>
+        <p className="text-[11px] text-muted-foreground">{user.email || user.phone || "-"}</p>
         <div className="mt-3 flex items-center gap-2 rounded-xl border border-border bg-input/40 px-3 py-2.5">
           <Wallet size={14} className="text-accent-cyan" />
           <p className="text-lg font-bold text-foreground">{NGN(Number(user.balance))}</p>
@@ -699,8 +699,8 @@ function PendingWithdrawals() {
             <div className="mt-3 rounded-xl border border-border/60 bg-input/30 p-3 text-[12px]">
               <div className="grid grid-cols-2 gap-2">
                 <Field label="User">{user?.username ?? "..."}</Field>
-                <Field label="Phone">{user?.phone ?? "—"}</Field>
-                <Field label="Email"><span className="truncate">{user?.email ?? "—"}</span></Field>
+                <Field label="Phone">{user?.phone ?? "-"}</Field>
+                <Field label="Email"><span className="truncate">{user?.email ?? "-"}</span></Field>
                 <Field label="Wallet after">{user ? NGN(Number(user.balance)) : "..."}</Field>
               </div>
               <div className="mt-2 border-t border-border/60 pt-2 space-y-1">

@@ -3,7 +3,7 @@ import { MessageCircle, Send, Mail, Clock } from "lucide-react";
 import { seo, SITE } from "@/lib/site";
 
 export const Route = createFileRoute("/_authenticated/support")({
-  head: () => seo({ title: "Support & Help — Keppta Investment", path: "/support", noindex: true }),
+  head: () => seo({ title: "Support & Help - Keppta Investment", path: "/support", noindex: true }),
   component: SupportPage,
 });
 
